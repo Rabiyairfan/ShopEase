@@ -1,0 +1,41 @@
+
+buildscript {
+    ext {
+        compose_version = '1.5.4'
+        kotlin_version = '1.9.0'
+        core_ktx_version = '1.12.0'
+        lifecycle_version = '2.6.2'
+        activity_compose_version = '1.8.1'
+        material3_version = '1.1.2'
+        firebase_bom_version = '32.7.0'
+        hilt_version = '2.48'
+        navigation_version = '2.7.5'
+        coil_version = '2.5.0'
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.1.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.gms:google-services:4.4.0'
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
+    }
+}
+
+
+plugins {
+    alias(libs.plugins.androidApplication) apply false
+    alias(libs.plugins.jetbrainsKotlinAndroid) apply false
+    alias(libs.plugins.kotlin.ksp) apply false
+    alias(libs.plugins.compose.compiler) apply false
+    alias(libs.plugins.hilt.gradle.plugin) apply false
+    alias(libs.plugins.google.services) apply false
+}
+
+
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
